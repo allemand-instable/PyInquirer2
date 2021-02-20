@@ -92,7 +92,7 @@ def question(message, **kwargs):
     #if 'default' in kwargs:
     #    raise ValueError('rawlist does not implement \'default\' '
     #                     'use \'checked\':True\' in choice!')
-    qmark = kwargs.pop('qmark', '?')
+    qmark = kwargs.pop('qmark', '[?]')
     choices = kwargs.pop('choices', None)
     if len(choices) > 9:
         raise ValueError('rawlist supports only a maximum of 9 choices!')

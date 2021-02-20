@@ -16,13 +16,28 @@ from . import PromptParameterException
 from ..separator import Separator
 from .common import setup_simple_validator, default_style, if_mousedown
 
+
+# Windows Fix : Pointer '>'
+from ..system_detection import get_platform
+
+
+
+
+
 # custom control based on FormattedTextControl
 
 
 class InquirerControl(FormattedTextControl):
     def __init__(self, choices, pointer_index, **kwargs):
         self.pointer_index = pointer_index
-        self.pointer_sign = kwargs.pop("pointer_sign", "\u276F")
+
+        # fix pointer on windows
+
+        if get_platform() == 'Windows' :
+            self.pointer_sign = kwargs.pop("pointer_sign", ">")
+        else :
+            self.pointer_sign = kwargs.pop("pointer_sign", "\u276F")
+
         self.selected_sign = kwargs.pop("selected_sign", "\u25C9")
         self.unselected_sign = kwargs.pop("unselected_sign", "\u25EF")
         self.selected_options = []  # list of names
@@ -141,8 +156,14 @@ def question(message, **kwargs):
 
     pointer_index = kwargs.pop('pointer_index', 0)
     additional_parameters = dict()
-    additional_parameters.update(
-        {"pointer_sign": kwargs.pop('pointer_sign', '\u276F')})
+
+    # windows pointer fix
+    if get_platform() == 'Windows' :
+        additional_parameters.update(
+            {"pointer_sign": kwargs.pop('pointer_sign', '>')})
+    else :
+        additional_parameters.update(
+            {"pointer_sign": kwargs.pop('pointer_sign', '\u276F')})
     #additional_parameters.update({"selected_sign": kwargs.pop('selected_sign', '\u25C9')})
     additional_parameters.update(
         {"unselected_sign": kwargs.pop('selected_sign', '\u25EF')})
@@ -150,7 +171,7 @@ def question(message, **kwargs):
         {"unselected_sign": kwargs.pop('unselected_sign', '\u25EF')})
 
     ic = InquirerControl(choices, pointer_index, **additional_parameters)
-    qmark = kwargs.pop('qmark', '?')
+    qmark = kwargs.pop('qmark', '[?]')
 
     def get_prompt_tokens():
         tokens = []

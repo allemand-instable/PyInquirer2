@@ -15,6 +15,9 @@ from . import PromptParameterException
 from ..separator import Separator
 from .common import if_mousedown, default_style
 
+# fix for Pointer not showing up on windows
+from ..system_detection import get_platform
+
 # custom control based on FormattedTextControl
 # docu here:
 # https://github.com/jonathanslenders/python-prompt-toolkit/issues/281
@@ -75,8 +78,12 @@ class InquirerControl(FormattedTextControl):
             if isinstance(choice[0], Separator):
                 tokens.append(('class:separator', '  %s\n' % choice[0]))
             else:
-                tokens.append(('class:pointer' if selected else '',
-                               ' \u276f ' if selected else '   '))
+                if get_platform() == 'Windows' :
+                    tokens.append(('class:pointer' if selected else '',
+                                   ' > ' if selected else '   '))
+                else :
+                    tokens.append(('class:pointer' if selected else '',
+                                   ' \u276f ' if selected else '   '))
                 if selected:
                     tokens.append(('[SetCursorPosition]', ''))
                 if choice[2]:  # disabled
@@ -108,7 +115,7 @@ def question(message, **kwargs):
 
     choices = kwargs.pop('choices', None)
     default = kwargs.pop('default', None)
-    qmark = kwargs.pop('qmark', '?')
+    qmark = kwargs.pop('qmark', '[?]')
     # TODO style defaults on detail level
     style = kwargs.pop('style', default_style)
 

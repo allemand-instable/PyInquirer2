@@ -107,7 +107,7 @@ def question(message, **kwargs):
 
     choices = kwargs.pop('choices', None)
     default = kwargs.pop('default', None)
-    qmark = kwargs.pop('qmark', '?')
+    qmark = kwargs.pop('qmark', '[?]')
     # TODO style defaults on detail level
     style = kwargs.pop('style', default_style)
 

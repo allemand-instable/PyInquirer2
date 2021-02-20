@@ -16,7 +16,7 @@ def question(message, **kwargs):
     style = kwargs.pop('style', default_style)
     status = {'answer': None}
 
-    qmark = kwargs.pop('qmark', '?')
+    qmark = kwargs.pop('qmark', '[?]')
 
     def get_prompt_tokens():
         tokens = []

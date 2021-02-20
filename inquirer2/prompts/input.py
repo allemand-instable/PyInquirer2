@@ -35,7 +35,7 @@ def question(message, **kwargs):
 
     # TODO style defaults on detail level
     kwargs['style'] = kwargs.pop('style', default_style)
-    qmark = kwargs.pop('qmark', '?')
+    qmark = kwargs.pop('qmark', '[?]')
 
     def _get_prompt_tokens():
         return [('class:questionmark', qmark),
