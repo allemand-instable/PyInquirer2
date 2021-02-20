@@ -14,20 +14,20 @@ dependency_links = [x.strip().replace('git+', '') for x in all_reqs \
                     if 'git+' in x]
 
 setup(
-    name='inquirer2',
+    name='inquirer2_windows',
     version='1.0.0',
     description=(
           'A Python module for collection of common interactive command line user interfaces,'
           ' based on Inquirer.js'
     ),
     license='MIT',
-    url='https://github.com/zeusxs/PyInquirer2/',
+    url='https://github.com/allemand-instable/PyInquirer2/',
     python_requires=">=3.6.1",
     classifiers=[
         'Development Status :: 1 - Planning',
         'Natural Language :: English',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.8',
         'Environment :: Console',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
@@ -39,9 +39,9 @@ setup(
     keywords='click, prompt-toolkit, cli, command-line, commandline, command-line-interface, python-inquiry, inquirer, inquirer2, PyInquirer2',
     packages=find_packages(exclude=['docs', 'tests*']),
     include_package_data=True,
-    author='pengbin.xyz',
+    author='allemand_instable',
     download_url='https://github.com/CITGuru/PyInquirer/archive/1.0.3.tar.gz',
     install_requires=install_requires,
     dependency_links=dependency_links,
-    author_email='pengbin.xyz@gmail.com',
+    author_email='dev.allemandinstable@gmail.com',
 )
