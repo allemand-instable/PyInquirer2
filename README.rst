@@ -1,13 +1,13 @@
-PyInquirer2
+PyInquirer2 - Windows Fix
 ==============
 .. image:: https://travis-ci.org/zeusxs/PyInquirer2.svg?branch=main
     :target: https://travis-ci.org/zeusxs/PyInquirer2
 
 **Github is starting to invite developers in from the GitHub Sponsors waitlist!**
 
-PyInquirer2 is fork from `PyInquirer <https://github.com/CITGuru/PyInquirer>`__, PyInquirer2 is a collection of common interactive command line user interfaces. 
+*PyInquirer2 - Windows Fix* is fork from `PyInquirer2 <https://github.com/zeusxs/PyInquirer2>`__, PyInquirer2 is a collection of common interactive command line user interfaces. 
 
-PyInquirer2 is comming! 
+This provides a fix for windows machines where UI doesn't show up properly! 
 -----------------
 
 Table of Contents
