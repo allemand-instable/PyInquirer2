@@ -63,7 +63,7 @@ Simply use pip to install the PyInquirer package
 
 .. code:: shell
 
-    pip install inquirer2
+    pip install inquirer2-windows
 
 In case you encounter any prompt\_toolkit error, that means you've the
 wrong prompt\_toolkit version.
